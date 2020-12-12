@@ -1,0 +1,48 @@
+//HOMEPAGE SCSS
+
+/*
+    =========
+    MAIN
+    =========
+*/
+
+
+
+.intro {
+
+    @include container;
+
+    background-color: $secondary-bg;
+    min-height: 100vh;
+
+    &__heading-first {
+        font-size: $h1;
+        padding-top: 25px;
+    }
+
+    &__heading-second {
+        font-size: $h2;
+        margin-bottom: $margin-bottom-primary;
+    }
+
+    // &__color-blocks {
+    //     @include mobile-down {
+    //         flex-direction: column;
+    //     }
+    // }
+
+    &__color-block {
+        &--red, &--purple, &--green {
+            height: 100px;
+        }
+        &--red {
+            background-color: firebrick;
+        }
+        &--purple {
+            background-color: purple;
+        }
+        &--green {
+            background-color: seagreen;
+        }
+    }
+}
