@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
 const browserSync = require('browser-sync').create();
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
@@ -9,7 +10,7 @@ const {parallel} = require('gulp');
 const {series} = require('gulp');
 
 const jsPath = './src/js/**/*.js';
-const scssPath = './src/scss/main.scss';
+const sassPath = './src/sass/main.sass';
 
 function copyHtml(){
     return gulp.src('src/*.html').pipe(gulp.dest('build'));
@@ -21,13 +22,13 @@ function copyImages(){
 }
 
 
-//compile scss into css
+//compile sass into css
 function style(){
     
-    return gulp.src(scssPath)
+    return gulp.src(sassPath)
     .pipe(sourcemaps.init())
     .pipe(sass({
-        includePaths: scssPath,
+        includePaths: sassPath,
         outputStyle: 'compressed'
     })
     .on('error', sass.logError))
@@ -39,10 +40,10 @@ function style(){
 
 function styleDev(){
     
-        return gulp.src(scssPath)
+        return gulp.src(sassPath)
         .pipe(sourcemaps.init())
         .pipe(sass({
-            includePaths: scssPath
+            includePaths: sassPath
         })
         .on('error', sass.logError))
         .pipe(sourcemaps.write())
@@ -75,7 +76,7 @@ function watch(){
             baseDir: './build'
         }
     });
-    gulp.watch('./src/scss/**/*.scss', styleDev);
+    gulp.watch('./src/sass/**/*.sass', styleDev);
     gulp.watch('./src/*html', copyHtml).on('change', browserSync.reload);
     gulp.watch('./src/js/**/*.js', jsDev).on('change', browserSync.reload);
     gulp.watch('./src/img/**/*', copyImages).on('change', browserSync.reload);
@@ -84,7 +85,7 @@ function watch(){
 //In case you want to copy source files to build folder
 
 function copySourceStyle(){
-    return gulp.src('src/scss/**/*').pipe(gulp.dest('build/srcfiles/scss'));
+    return gulp.src('src/sass/**/*').pipe(gulp.dest('build/srcfiles/sass'));
 }
 
 function copySourceJs(){
@@ -94,7 +95,7 @@ function copySourceJs(){
 exports.copyHtml = copyHtml;
 exports.copyImages = copyImages;
 exports.style = style;
-//copies source scss and js to build/srcfiles folder
+//copies source sass and js to build/srcfiles folder
 exports.copySource = parallel (copySourceStyle, copySourceJs);
 
 exports.build = parallel(copyHtml, copyImages, style, js);
