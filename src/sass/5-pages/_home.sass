@@ -21,10 +21,11 @@
         margin-bottom: $margin-bottom-primary
     &__color-block 
         &--red, &--purple, &--green 
-            height: 100px
+            min-height: 100px
         &--red 
             background-color: firebrick
             @include z-index-4
+            @include section-padded
         &--purple 
             background-color: purple
         &--green 
