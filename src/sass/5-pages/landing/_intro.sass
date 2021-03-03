@@ -1,0 +1,28 @@
+//HOMEPAGE SCSS
+
+
+//    =========
+//    MAIN
+//    =========
+
+
+
+.page-landing
+    & .intro
+        +container-fluid
+        +bg-image("../img/bg-image.jpg")
+        +h(650px)
+        background-color: $secondary-bg
+        background-size: cover
+        background-repeat: no-repeat
+        background-position: center
+        +d-flex
+        +align-center
+        +justify-start
+        &__content
+            +mw(1200px)
+            +m(0,auto)
+            &__wrapper
+                +mw(490px)
+            & h1, & h4
+                +text-left

@@ -6,8 +6,8 @@
 
 @mixin container 
     width: 100%
-    @include margin-x (auto)
-    @include padding-x (15px)
+    @include mx (auto)
+    @include px (15px)
     @include phablet-up
         max-width: 540px
     @include tablet-up
@@ -19,8 +19,17 @@
 
 @mixin container-fluid 
     width: 100%
-    @include margin-x (auto)
-    @include padding-x (15px)
+    @include mx (auto)
+    @include px (15px)
+
+@mixin mw ($size)
+    max-width: $size
+
+@mixin w ($size)
+    width: $size
+
+@mixin h ($size)
+    height: $size
 
 /*
     ============
@@ -28,13 +37,16 @@
     ============
                     */
 
-@mixin margin-x ($size) 
+@mixin m ($y, $x)
+    margin: $y $x
+
+@mixin mx ($size) 
     margin-right: $size
     margin-left: $size
 
-@mixin margin-y ($top, $bottom)
-    margin-top: $top
-    margin-bottom: $bottom
+@mixin my ($size)
+    margin-top: $size
+    margin-bottom: $size
 
 @mixin mb-primary 
     margin-bottom: $margin-bottom-primary
@@ -42,11 +54,23 @@
 @mixin mb-secondary
     margin-bottom: $margin-bottom-secondary
 
-@mixin padding-x ($size)
+@mixin mr($size)
+    margin-right: $size
+
+@mixin ml($size)
+    margin-left: $size
+
+@mixin mt($size)
+    margin-top: $size
+
+@mixin mb($size)
+    margin-bottom: $size
+
+@mixin px($size)
     padding-right: $size
     padding-left: $size
 
-@mixin padding-y ($size)
+@mixin py($size)
     padding-top: $size
     padding-bottom: $size
 
@@ -63,11 +87,43 @@
     padding-top: $section-padded
     padding-bottom: $section-padded
 
+@mixin pr($size)
+    padding-right: $size
+
+@mixin pl($size)
+    padding-left: $size
+
+@mixin pt($size)
+    padding-top: $size
+
+@mixin pb($size)
+    padding-bottom: $size
+
+/*
+    ==================
+    DISPLAY TYPES
+    ==================
+                        */
+
+@mixin d-inline-block
+    display: inline-block
+@mixin d-inline
+    display: inline
+@mixin d-block
+    display: block
+@mixin d-none
+    display: none
+@mixin d-flex
+    display: flex
+
 /*
     ==================
     MIXINS FOR FLEXBOX
     ==================
                         */
+
+@mixin align-center
+    align-items: center
 
 @mixin flex-center
     display: flex
@@ -75,19 +131,19 @@
     justify-content: center
 
 @mixin space-around
-    display: flex
     justify-content: space-around
 
 @mixin space-between
-    display: flex
     justify-content: space-between
 
 @mixin flex-column
-    display: flex
     flex-direction: column
 
 @mixin column-reverse
     flex-direction: column-reverse
+
+@mixin justify-start
+    justify-content: start
 
 /*
     ==========
@@ -128,6 +184,20 @@
 @mixin no-repeat
     background-repeat: no-repeat
 
+@mixin bg-image($url)
+    background-image: url($url)
+
+/*
+    ====================================
+    TEXT POSITIONING
+    ====================================
+                                            */
+                                                
+@mixin text-left
+    text-align: left
+@mixin text-right
+    text-align: right
+                        
 
 //    =========
 //    ASPECT RATIO BOXES
@@ -185,7 +255,7 @@
     margin-bottom: 0
     list-style: none
     @include padding-y (.5rem)
-    @include padding-x (1rem)
+    @include px (1rem)
     text-decoration: none
 
 @mixin uppercase
