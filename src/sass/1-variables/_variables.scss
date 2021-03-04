@@ -7,18 +7,19 @@
 $font-family: 'Roboto', sans-serif;
 //background colors
 $primary-bg: #fff; 
-$secondary-bg: gold;
+$secondary-bg: #66B933;
+$tertiary-bg: #000;
 //font colors
 $primary-font-color: #010100;
 $secondary-font-color: #fff;
 //headings in pixels, but will be converted to rems
 $h1: rem(64);
-$h2: rem(27);
+$h2: rem(30);
 $h3: rem(20);
 $h4: rem(18);
 $h5: rem(16);
 $h6: rem(16);
-$p: rem(16);
+$p: rem(18);
 
 $primary-line-height: 1.5;
 
@@ -58,7 +59,7 @@ $large-desktop-start: 1200px;
 
 //Buttons
 
-$button-color: gold;
+$button-color: #66B933;
 $button-font-size: 1.6rem;
 $button-padding: 0.5em 1.5em;
 $button-margin: 0;

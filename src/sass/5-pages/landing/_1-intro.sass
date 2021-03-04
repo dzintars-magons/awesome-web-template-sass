@@ -1,8 +1,6 @@
-//HOMEPAGE SCSS
-
 
 //    =========
-//    MAIN
+//    LANDING-PAGE - INTRO
 //    =========
 
 
@@ -16,13 +14,14 @@
         background-size: cover
         background-repeat: no-repeat
         background-position: center
-        +d-flex
-        +align-center
-        +justify-start
         &__content
             +mw(1200px)
             +m(0,auto)
             &__wrapper
-                +mw(490px)
+                +d-flex
+                +align-center
+                +justify-start
+                +pt(12%)
             & h1, & h4
                 +text-left
+                +color($secondary-font-color)
