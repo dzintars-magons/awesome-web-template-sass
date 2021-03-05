@@ -2,11 +2,20 @@ footer
     & .footer-nav-wrapper
         & .footer-nav
             +flex-center
-            flex-direction: row
+            +flex-row
             +no-bullets
             +py(56px)
+            +mobile-down
+                +flex-column
             & li:not(:last-child)
                 +mr(17px)
+                +mobile-down
+                    +p(0px,0px)
+                    +m(0px,0px)
+            & li
+                +mobile-down
+                    +p(0px, 0px)
+                    +m(0px, 0px)
         & .logo-wrap
             +w(100%)
             +d-flex
@@ -17,3 +26,5 @@ footer
                 & .footer-logo
                     +w(280px)
                     +mx(auto)
+                    +mobile-only
+                        +w(140px)

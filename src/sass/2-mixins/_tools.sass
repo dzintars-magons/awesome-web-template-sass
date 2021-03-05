@@ -66,6 +66,9 @@
 @mixin mb($size)
     margin-bottom: $size
 
+@mixin p ($y,$x)
+    padding: $y $x
+       
 @mixin px($size)
     padding-right: $size
     padding-left: $size
@@ -139,6 +142,9 @@
 @mixin flex-column
     flex-direction: column
 
+@mixin flex-row
+    flex-direction: row
+
 @mixin column-reverse
     flex-direction: column-reverse
 
@@ -200,7 +206,8 @@
     text-align: left
 @mixin text-right
     text-align: right
-                        
+@mixin text-center
+    text-align: center                        
 
 //    =========
 //    ASPECT RATIO BOXES
@@ -244,10 +251,14 @@
     =============
                     */
 
-@mixin absolute-position
+@mixin absolute
     position: absolute
-    top: 0px
-    right: 0px
+
+@mixin relative
+    position: relative
+
+@mixin fixed
+    position: fixed
 
 @mixin navigation
     display: flex

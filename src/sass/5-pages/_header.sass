@@ -15,7 +15,17 @@
             +d-flex
             & .header-nav-wrapper
                 & .header-nav
+                    +mobile-only
+                        +d-none
                     &__item
                         +mr(36px)
                         +no-bullets
                         +d-inline-block
+                & .nav-burger
+                    +phablet-up
+                        +d-none
+                    +mobile-down
+                        +d-block
+                    & path
+                        stroke: #0F2846
+            
