@@ -7,7 +7,6 @@
 
 .page-landing
     & .intro
-        +container-fluid
         +bg-image("../img/bg-image.jpg")
         +h(650px)
         background-color: $secondary-bg
@@ -18,12 +17,8 @@
             +mw(1200px)
             +m(0,auto)
             &__wrapper
-                +d-flex
-                +align-center
-                +justify-start
                 +pt(12%)
             & h1, & h4
-                +text-left
                 +color($secondary-font-color)
             & h1
                 +mobile-only

@@ -1,12 +1,8 @@
 footer
     & .footer-nav-wrapper
         & .footer-nav
-            +flex-center
-            +flex-row
             +no-bullets
             +py(56px)
-            +mobile-down
-                +flex-column
             & li:not(:last-child)
                 +mr(17px)
                 +mobile-down
@@ -17,14 +13,10 @@ footer
                     +p(0px, 0px)
                     +m(0px, 0px)
         & .logo-wrap
-            +w(100%)
-            +d-flex
-            +justify-center
             & a
                 +pb(6rem)
                 +pt(1.5rem)
                 & .footer-logo
                     +w(280px)
-                    +mx(auto)
                     +mobile-only
                         +w(140px)
