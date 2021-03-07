@@ -1,27 +1,14 @@
 .mobile-nav
-    +d-none
-    +fixed
-    +flex-column
-    +align-center
-    +w(100vw)
-    +h(100vh)
-    left: 0
-    top: 0
-    bg($tertiary-bg)
     transition: 0.3s all
-    +z-index-2
     background-color: $tertiary-bg
     &__close
         +mobile-only
             +d-block
-        +absolute
         top: 30px
         right: 30px
     & ul
         +pt(115px)
         & li
             +color($secondary-font-color)
-            +text-center
-            +p(0,0)
         & li:not(:last-child)
             +mb(10px)
