@@ -1,19 +1,19 @@
 //DESKTOP FIRST MEDIA QUERIES
 
 //till 1199px
-@mixin desktop-down
-    @media (max-width: #{$desktop-end})
+@mixin xl-down
+    @media (max-width: #{$lg-end})
         @content
 //till 991px
-@mixin tablet-down
-    @media (max-width: #{$tablet-end})
+@mixin lg-down
+    @media (max-width: #{$md-end})
         @content
 //till 767px
-@mixin phablet-down
-    @media (max-width: #{$phablet-end})
+@mixin md-down
+    @media (max-width: #{$sm-end})
         @content
 //till 575px
-@mixin mobile-down
+@mixin sm-down
     @media (max-width: #{$mobile-end})
         @content
 //till whatever you choose
@@ -29,22 +29,24 @@
 
 //phablet up 
 //576px and up 
-@mixin phablet-up
-    @media (min-width: #{$phablet-start})
+@mixin sm-up
+    @media (min-width: #{$sm-start})
         @content
 //tablet up
 //768px and up 
-@mixin tablet-up
-    @media (min-width: #{$tablet-start})
+@mixin md-up
+    @media (min-width: #{$md-start})
         @content
 
 //992px and up
-@mixin desktop-up
-    @media (min-width: #{$desktop-start})
+@mixin lg-up
+    @media (min-width: #{$lg-start})
         @content
 
-@mixin large-desktop-up
-    @media (min-width: #{$large-desktop-start})
+//1200px and up
+
+@mixin xl-up
+    @media (min-width: #{$xl-start})
         @content
 
 //from whatever size you choose
@@ -57,23 +59,27 @@
 
 //mobile only
 //till 576px only
-@mixin mobile-only
+@mixin xs-only
     @media (max-width: #{$mobile-end})
         @content
 //phablet-phones' size only
 //577px - 768px
-@mixin phablet-only
-    @media (min-width: #{$phablet-start}) and (max-width: #{$phablet-end})
+@mixin sm-only
+    @media (min-width: #{$sm-start}) and (max-width: #{$sm-end})
         @content
 //only tablet
-//from 768px till 992px
-@mixin tablet-only
-    @media (min-width: #{$tablet-start}) and (max-width: #{$tablet-end})
+//from 768px till 991px
+@mixin md-only
+    @media (min-width: #{$md-start}) and (max-width: #{$md-end})
         @content
 //only desktop
-//from 992px
-@mixin desktop-only
-    @media (min-width: #{$desktop-start})
+//from 992px till 1199px
+@mixin lg-only
+    @media (min-width: #{$lg-start}) and (max-width: #{$lg-end})
+        @content
+//only large desktop
+@mixin xl-only
+    @media (min-width: #{$xl-start})
         @content
 //only specific range of your choosing 
 @mixin range ($min, $max)
