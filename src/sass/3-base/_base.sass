@@ -169,9 +169,9 @@ th
   h3 
     page-break-after: avoid
   
-  @page 
-    size: a3
-  
+@page 
+  size: a3
+
   body 
     min-width: 992px !important
   
@@ -207,3 +207,17 @@ th
   .table .thead-dark th 
     color: inherit
     border-color: #dee2e6
+  
+//Remove all animations, transitions and smooth scroll for people that prefer not to see them 
+@media (prefers-reduced-motion: reduce) 
+  html:focus-within 
+   scroll-behavior: auto
+  
+  *,
+  *::before,
+  *::after 
+    animation-duration: 0.01ms !important
+    animation-iteration-count: 1 !important
+    transition-duration: 0.01ms !important
+    scroll-behavior: auto !important
+  
