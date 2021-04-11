@@ -1,9 +1,10 @@
+@use '../2-mixins/px-to-rem-convert' as *
 @use '1-variables/variables' as *
 
 html
   box-sizing: border-box
   -ms-overflow-style: scrollbar
-  font-family: sans-serif
+  font-family: $font-family
   min-height: 100%
   width: 100%
   -webkit-text-size-adjust: 100%

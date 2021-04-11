@@ -1,13 +1,12 @@
 @use '1-variables/variables' as *
-@use '2-mixins/mediaqueries' as *
-@use '2-mixins/tools' as *
+@use '2-mixins' as *
 
 header
     +bg($tertiary-bg)
     .header-burger
         height: rem(35px)
     .header-img
-        +h(25px)
+        +h(rem(25px))
 
 .page-landing
     .section-hero
