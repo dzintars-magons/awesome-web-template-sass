@@ -1,7 +1,11 @@
+@use '1-variables/variables' as *
+@use '2-mixins/mediaqueries' as *
+@use '2-mixins/tools' as *
+
 header
     +bg($tertiary-bg)
     .header-burger
-        +h(35px)
+        height: rem(35px)
     .header-img
         +h(25px)
 
@@ -14,4 +18,6 @@ header
         &__content
             .hero-heading
                 +xl-only
+                    color: purple
+                +xl-down
                     color: gold
