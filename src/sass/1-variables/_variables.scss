@@ -1,4 +1,31 @@
+@use 'sass:map';
 @use '2-mixins/px-to-rem-convert' as *;
+
+//FONT-SIZES MAP
+
+// large-heading and paragraph are examples here
+//you can add and change the naming yourself and you will have classes of the same name with font-sizes starting from these correspdonding breakpoints
+//you can also delete a breakpoint if you don't need a change in font-size starting from that specific breakpoint
+
+$font-sizes:
+    (
+        "large-heading" : 
+        (
+            "xs" : 45px,
+            "sm" : 45px,
+            "md" : 45px,
+            "lg" : 75px,
+            "xl" : 75px
+        ),
+        "paragraph" : 
+        (
+            "xs" : 20px,
+            "sm" : 22px,
+            "md" : 22px,
+            "lg" : 30px,
+            "xl" : 44px
+        )
+    );
     
 /*
     =========
