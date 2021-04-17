@@ -6,6 +6,7 @@
 // large-heading and paragraph are examples here
 //you can add and change the naming yourself and you will have classes of the same name with font-sizes starting from these correspdonding breakpoints
 //you can also delete a breakpoint if you don't need a change in font-size starting from that specific breakpoint
+//breakpoints to use : xs, sm, md, lg, xl ; others will not work unless you specify them in 5-helper-classes/page-typography
 
 $font-sizes:
     (
