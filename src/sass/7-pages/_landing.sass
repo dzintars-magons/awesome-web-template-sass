@@ -1,5 +1,6 @@
 @use '1-variables/variables' as *
 @use '2-mixins' as *
+@use 'sass:map'
 
 header
     +bg($tertiary-bg)
@@ -15,8 +16,12 @@ header
         .btn:not(:last-child)
             +mr(10px)
         &__content
-            .hero-heading
+            // .hero-heading
+            //     font-size: map.get($font-sizes, large-heading)
+    // font-size: map.get($font-sizes, large-heading);
+    // font-size: 30px
                 +xl-only
                     color: purple
                 +xl-down
                     color: gold
+            
