@@ -76,7 +76,7 @@ function watch(){
             baseDir: './build'
         }
     });
-    gulp.watch('./src/sass/**/*.sass', styleDev);
+    gulp.watch(['./src/sass/**/*.sass', './src/sass/**/*.scss'], styleDev);
     gulp.watch('./src/*html', copyHtml).on('change', browserSync.reload);
     gulp.watch('./src/js/**/*.js', jsDev).on('change', browserSync.reload);
     gulp.watch('./src/img/**/*', copyImages).on('change', browserSync.reload);
@@ -95,6 +95,7 @@ function copySourceJs(){
 exports.copyHtml = copyHtml;
 exports.copyImages = copyImages;
 exports.style = style;
+exports.styleDev = styleDev;
 //copies source sass and js to build/srcfiles folder
 exports.copySource = parallel (copySourceStyle, copySourceJs);
 
