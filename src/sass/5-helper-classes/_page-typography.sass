@@ -23,22 +23,12 @@
             @if $breakpoint-value == xs
                 .#{$class-name}
                     font-size: rem($value)
-            @else if $breakpoint-value == sm
-                .#{$class-name}
-                    +sm-up
-                        font-size: rem($value)
-            @else if $breakpoint-value == md
-                .#{$class-name}
-                    +md-up
-                        font-size: rem($value)
-            @else if $breakpoint-value == lg
-                .#{$class-name}
-                    +lg-up
-                        font-size: rem($value)
-            @else if $breakpoint-value == xl
-                .#{$class-name}
-                    +xl-up
-                        font-size: rem($value)
+            @else
+                @each $grid-breakpoint, $grid-breakpoint-value in $grid-breakpoints-start
+                    @if $breakpoint-value == $grid-breakpoint
+                        .#{$class-name}
+                            @media (min-width: #{$grid-breakpoint-value})
+                                font-size: rem($value)
 
         
         
