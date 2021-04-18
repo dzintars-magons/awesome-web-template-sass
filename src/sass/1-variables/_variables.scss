@@ -67,19 +67,38 @@ $bold:      700;
 
 //Bootstrap Breakpoints INFO
 
-$mobile-end: 575px; 
-//sm
-$sm-start: 576px;
-$sm-end: 767px;
-//md
-$md-start: 768px;
-$md-end: 991px;
-//lg
-$lg-start: 992px;
-$lg-end: 1199px;
-//xl
-$xl-start: 1200px;
+//grid-breakpoints start value
+$grid-breakpoints-start: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+);
 
+$grid-breakpoints-end: (
+    xs: 575px,
+    sm: 767px,
+    md: 991px,
+    lg: 1199px,
+    xl: 1399px
+);
+
+$mobile-end: map.get($grid-breakpoints-end, xs); 
+//sm
+$sm-start: map.get($grid-breakpoints-start, sm);
+$sm-end: map.get($grid-breakpoints-end, sm);
+//md
+$md-start: map.get($grid-breakpoints-start, md);
+$md-end: map.get($grid-breakpoints-end, md);
+//lg
+$lg-start: map.get($grid-breakpoints-start, lg);
+$lg-end: map.get($grid-breakpoints-end, lg);
+//xl
+$xl-start: map.get($grid-breakpoints-start, xl);
+$xl-end: map.get($grid-breakpoints-end, xl);
+//xxl
+$xxl-start: map.get($grid-breakpoints-start, xxl);
 
 /*
     =========

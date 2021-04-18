@@ -51,6 +51,12 @@
     @media (min-width: #{$xl-start})
         @content
 
+//1400px and up
+
+@mixin xxl-up
+    @media (min-width: #{$xxl-start})
+        @content
+
 //from whatever size you choose
 
 @mixin min-width ($size)

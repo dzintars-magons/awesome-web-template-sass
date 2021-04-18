@@ -16,12 +16,15 @@ header
         .btn:not(:last-child)
             +mr(10px)
         &__content
+            +xs-only
+                color: purple
+            +sm-up
+                color: gold
+            +md-up
+                color: firebrick
             // .hero-heading
             //     font-size: map.get($font-sizes, large-heading)
     // font-size: map.get($font-sizes, large-heading);
     // font-size: 30px
-                +xl-only
-                    color: purple
-                +xl-down
-                    color: gold
+            
             
