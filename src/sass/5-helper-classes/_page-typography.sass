@@ -16,6 +16,9 @@
         @if $prop-key == color
             .#{$class-name}
                 color: $prop-value
+        @if $prop-key == margin-bottom
+            .#{$class-name}
+                margin-bottom: rem($prop-value)
         @each $breakpoint-value, $value in $prop-value
             @if $breakpoint-value == xs
                 .#{$class-name}
