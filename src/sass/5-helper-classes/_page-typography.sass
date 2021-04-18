@@ -2,27 +2,40 @@
 @use '2-mixins/mediaqueries' as *
 @use '2-mixins/px-to-rem-convert' as *
 
-@each $class-name, $breakpoint in $font-sizes
-    @each $breakpoint-value, $value in $breakpoint
-        @if $breakpoint-value == xs
+@each $class-name, $property in $font-properties
+    @each $prop-key, $prop-value in $property
+        @if $prop-key == font-family
             .#{$class-name}
-                font-size: rem($value)
-        @else if $breakpoint-value == sm
+                font-family: $prop-value
+        @if $prop-key == font-weight
             .#{$class-name}
-                +sm-up
+                font-weight: $prop-value
+        @if $prop-key == line-height
+            .#{$class-name}
+                line-height: $prop-value
+        @if $prop-key == color
+            .#{$class-name}
+                color: $prop-value
+        @each $breakpoint-value, $value in $prop-value
+            @if $breakpoint-value == xs
+                .#{$class-name}
                     font-size: rem($value)
-        @else if $breakpoint-value == md
-            .#{$class-name}
-                +md-up
-                    font-size: rem($value)
-        @else if $breakpoint-value == lg
-            .#{$class-name}
-                +lg-up
-                    font-size: rem($value)
-        @else if $breakpoint-value == xl
-            .#{$class-name}
-                +xl-up
-                    font-size: rem($value)
+            @else if $breakpoint-value == sm
+                .#{$class-name}
+                    +sm-up
+                        font-size: rem($value)
+            @else if $breakpoint-value == md
+                .#{$class-name}
+                    +md-up
+                        font-size: rem($value)
+            @else if $breakpoint-value == lg
+                .#{$class-name}
+                    +lg-up
+                        font-size: rem($value)
+            @else if $breakpoint-value == xl
+                .#{$class-name}
+                    +xl-up
+                        font-size: rem($value)
 
         
         
