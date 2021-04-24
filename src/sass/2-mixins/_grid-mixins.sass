@@ -1,0 +1,19 @@
+@use '2-mixins/tools' as *
+
+@mixin make-container
+    +w(100%)
+    +px(15px)
+    +mx(auto)
+
+@mixin make-row
+    display: -ms-flexbox
+    display: flex
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+    margin-right: -15px
+    margin-left: -15px
+
+%grid-column
+    position: relative
+    width: 100%
+    +px(15px)

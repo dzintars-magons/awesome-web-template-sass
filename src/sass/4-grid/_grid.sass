@@ -1,0 +1,158 @@
+@use '1-variables/variables' as *
+@use '2-mixins/tools' as *
+@use '2-mixins/mediaqueries' as *
+@use '2-mixins/grid-mixins' as *
+
+.container
+    +make-container
+    +sm-up
+        +mw(540px)
+    +md-up
+        +mw(720px)
+    +lg-up
+        +mw(960px)
+    +xl-up
+        +mw(1140px)
+
+.container-fluid, .container-sm, .container-md, .container-lg, .container-xl
+    +make-container
+
+.container, .container-sm
+    +sm-up
+        max-width: 540px
+
+.container, .container-sm, .container-md
+    +md-up
+        max-width: 720px
+
+.container, .container-sm, .container-md, .container-lg
+    +lg-up
+        max-width: 960px
+
+.container, .container-sm, .container-md, .container-lg, .container-xl
+    +xl-up
+        max-width: 1140px
+
+.row
+    +make-row
+
+.no-gutters
+    +mx(0)
+
+.no-gutters > .col, .no-gutters > [class*="col-"]
+    +px(0)
+
+@each $breakpoint, $value in $grid-breakpoints-start
+    @for $i from 1 through $grid-columns
+        .col-#{$i}, .col-#{$breakpoint}-#{$i}, .col, .col-auto, .col-#{$breakpoint}
+            @extend %grid-column
+        
+.col 
+  -ms-flex-preferred-size: 0
+  flex-basis: 0
+  -ms-flex-positive: 1
+  flex-grow: 1
+  min-width: 0
+  max-width: 100%
+
+@for $i from 1 through $grid-columns / 2
+        .row-cols-#{$i} > *
+            -ms-flex: 0 0 100% / $i
+            flex: 0 0 100% / $i
+            max-width: 100% / $i
+
+@each $breakpoint, $value in $grid-breakpoints-start
+    @for $i from 1 through $grid-columns / 2
+        .row-cols-#{$breakpoint}-#{$i} > *
+            @media (min-width: #{$value})
+                -ms-flex: 0 0 100% / $i
+                flex: 0 0 100% / $i
+                max-width: 100% / $i
+
+.col-auto
+  -ms-flex: 0 0 auto
+  flex: 0 0 auto
+  width: auto
+  max-width: 100%
+
+@each $breakpoint, $value in $grid-breakpoints-start
+    .col-#{$breakpoint}-auto
+        @media (min-width: #{$value})
+            -ms-flex: 0 0 auto
+            flex: 0 0 auto
+            width: auto
+            max-width: 100%
+
+@for $i from 1 through $grid-columns
+    .col-#{$i}
+        -ms-flex: 0 0 (100% / $grid-columns) * $i
+        flex: 0 0 (100% / $grid-columns) * $i
+        max-width: (100% / $grid-columns) * $i
+
+@each $breakpoint, $value in $grid-breakpoints-start
+    @for $i from 1 through $grid-columns
+        @media (min-width: #{$value})
+            .col-#{$breakpoint}-#{$i}
+                -ms-flex: 0 0 (100% / $grid-columns) * $i
+                flex: 0 0 (100% / $grid-columns) * $i
+                max-width: (100% / $grid-columns) * $i
+
+.order-first
+  -ms-flex-order: -1
+  order: -1
+
+.order-last 
+  -ms-flex-order: 13
+  order: 13
+
+.order-0
+  -ms-flex-order: 0
+  order: 0
+
+@for $i from 1 through $grid-columns
+    .order-#{$i}
+        -ms-flex-order: $i
+        order: $i
+
+@for $i from 1 through $grid-columns - 1
+    .offset-#{$i}
+        margin-left: (100% / $grid-columns) * $i
+
+@each $breakpoint, $value in $grid-breakpoints-start
+    @media (min-width: #{$value})
+        .order-#{$breakpoint}-first
+            -ms-flex-order: -1
+            order: -1
+        .order-#{$breakpoint}-last 
+            -ms-flex-order: 13
+            order: 13
+        .order-#{$breakpoint}-0 
+            -ms-flex-order: 0
+            order: 0
+        .col-#{$breakpoint}
+            -ms-flex-preferred-size: 0
+            flex-basis: 0
+            -ms-flex-positive: 1
+            flex-grow: 1
+            min-width: 0
+            max-width: 100%
+
+@each $breakpoint, $value in $grid-breakpoints-start
+    @for $i from 1 through $grid-columns
+        @media (min-width: #{$value})
+            .order-#{$breakpoint}-#{$i}
+                -ms-flex-order: $i
+                order: $i
+
+@each $breakpoint, $value in $grid-breakpoints-start
+    @for $i from 1 through $grid-columns - 1
+        @media (min-width: #{$value})
+            .offset-#{$breakpoint}-#{$i}
+                margin-left: (100% / $grid-columns) * $i
+
+@each $breakpoint, $value in $grid-breakpoints-start
+    @media (min-width: #{$value})
+        .offset-#{$breakpoint}-0
+            margin-left: 0
+
+
