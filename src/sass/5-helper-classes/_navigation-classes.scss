@@ -1,4 +1,5 @@
 @use '1-variables/variables' as *;
+@use '2-mixins/px-to-rem-convert' as *;
 
 .nav {
     display: -ms-flexbox;
@@ -191,7 +192,7 @@
     background-size: 100% 100%;
   }
 
-  @media (max-width: ($sm-start - 0.02px)) {
+  @media (max-width: ($sm-start - em(0.02px))) {
     .navbar-expand-sm > .container,
     .navbar-expand-sm > .container-fluid, .navbar-expand-sm > .container-sm, .navbar-expand-sm > .container-md, .navbar-expand-sm > .container-lg, .navbar-expand-sm > .container-xl, .navbar-expand-sm > .container-xxl {
       padding-right: 0;
@@ -233,7 +234,7 @@
     }
   }
 
-  @media (max-width: ($md-start - 0.02px )) {
+  @media (max-width: ($md-start - em(0.02px))) {
     .navbar-expand-md > .container,
     .navbar-expand-md > .container-fluid, .navbar-expand-md > .container-sm, .navbar-expand-md > .container-md, .navbar-expand-md > .container-lg, .navbar-expand-md > .container-xl {
       padding-right: 0;
@@ -275,7 +276,7 @@
     }
   }
 
-  @media (max-width: ($lg-start - 0.02px)) {
+  @media (max-width: ($lg-start - em(0.02px))) {
     .navbar-expand-lg > .container,
     .navbar-expand-lg > .container-fluid, .navbar-expand-lg > .container-sm, .navbar-expand-lg > .container-md, .navbar-expand-lg > .container-lg, .navbar-expand-lg > .container-xl {
       padding-right: 0;
@@ -317,7 +318,7 @@
     }
   }
 
-  @media (max-width: ($xl-start - 0.02px)) {
+  @media (max-width: ($xl-start - em(0.02px))) {
     .navbar-expand-xl > .container,
     .navbar-expand-xl > .container-fluid, .navbar-expand-xl > .container-sm, .navbar-expand-xl > .container-md, .navbar-expand-xl > .container-lg, .navbar-expand-xl > .container-xl {
       padding-right: 0;

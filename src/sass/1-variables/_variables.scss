@@ -88,31 +88,31 @@ $font-properties:
 //Bootstrap Breakpoints INFO
 
 $grid-columns: 12;
-$grid-gutter-width: 30px;
+$grid-gutter-width: rem(30px);
 
 //grid-breakpoints start value
 $grid-breakpoints-start: (
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-    xxl: 1400px
+    sm: em(576px),
+    md: em(768px),
+    lg: em(992px),
+    xl: em(1200px),
+    xxl: em(1400px)
 );
 
 $grid-breakpoints-end: (
-    xs: 575px,
-    sm: 767px,
-    md: 991px,
-    lg: 1199px,
-    xl: 1399px
+    xs: em(575px),
+    sm: em(767px),
+    md: em(991px),
+    lg: em(1199px),
+    xl: em(1399px)
 );
 
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1140px,
-  xxl: 1320px
+  sm: rem(540px),
+  md: rem(720px),
+  lg: rem(960px),
+  xl: rem(1140px),
+  xxl: rem(1320px)
 );
 
 $mobile-end: map.get($grid-breakpoints-end, xs); 
@@ -136,6 +136,9 @@ $xxl-start: map.get($grid-breakpoints-start, xxl);
     Other
     =========
 */
+
+$bg-gradient-from: #222228;
+$bg-gradient-to: #33333C;
 
 //Buttons
 

@@ -25,3 +25,10 @@ $mixin--baseFontSize: $font-size-base;
 }
 
 // ------------------------------------------
+
+@function em($pixels, $context: $mixin--baseFontSize) {
+  $u-pixels: strip-unit($pixels);
+  $u-context: strip-unit($context);
+  
+  @return $u-pixels / $u-context * 1em;
+}
