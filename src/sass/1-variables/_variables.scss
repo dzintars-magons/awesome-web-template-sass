@@ -85,7 +85,7 @@ $font-properties:
     =========
 */
 
-//Bootstrap Breakpoints INFO
+//GRID Breakpoints INFO
 
 $grid-columns: 12;
 $grid-gutter-width: rem(30px);
@@ -98,7 +98,7 @@ $grid-breakpoints-start: (
     xl: em(1200px),
     xxl: em(1400px)
 );
-
+//grid breakpoints end value
 $grid-breakpoints-end: (
     xs: em(575px),
     sm: em(767px),
@@ -106,7 +106,7 @@ $grid-breakpoints-end: (
     lg: em(1199px),
     xl: em(1399px)
 );
-
+//max widths for grid containers
 $container-max-widths: (
   sm: rem(540px),
   md: rem(720px),

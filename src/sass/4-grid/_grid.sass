@@ -41,7 +41,7 @@
 
 @each $breakpoint, $value in $grid-breakpoints-start
     @for $i from 1 through $grid-columns
-        .col-#{$i}, .col-#{$breakpoint}-#{$i}, .col, .col-auto, .col-#{$breakpoint}
+        .col-#{$i}, .col-#{$breakpoint}-#{$i}, .col, .col-auto, .col-#{$breakpoint}, .col-#{$breakpoint}-auto
             @extend %grid-column
         
 .col 
