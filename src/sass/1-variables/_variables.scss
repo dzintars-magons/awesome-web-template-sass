@@ -88,6 +88,7 @@ $font-properties:
 //Bootstrap Breakpoints INFO
 
 $grid-columns: 12;
+$grid-gutter-width: 30px;
 
 //grid-breakpoints start value
 $grid-breakpoints-start: (
@@ -104,6 +105,14 @@ $grid-breakpoints-end: (
     md: 991px,
     lg: 1199px,
     xl: 1399px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
 );
 
 $mobile-end: map.get($grid-breakpoints-end, xs); 

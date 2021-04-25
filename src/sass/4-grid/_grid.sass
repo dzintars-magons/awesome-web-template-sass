@@ -2,36 +2,33 @@
 @use '2-mixins/tools' as *
 @use '2-mixins/mediaqueries' as *
 @use '2-mixins/grid-mixins' as *
-
-.container
-    +make-container
-    +sm-up
-        +mw(540px)
-    +md-up
-        +mw(720px)
-    +lg-up
-        +mw(960px)
-    +xl-up
-        +mw(1140px)
-
-.container-fluid, .container-sm, .container-md, .container-lg, .container-xl
-    +make-container
+@use 'sass:map'
 
 .container, .container-sm
-    +sm-up
-        max-width: 540px
+    @each $breakpoint, $max-width in $container-max-widths
+        @each $grid-breakpoint-name, $grid-breakpoint-value in $grid-breakpoints-start
+            @if $breakpoint == $grid-breakpoint-name
+                +min-width($grid-breakpoint-value)
+                    max-width: $max-width
 
-.container, .container-sm, .container-md
+.container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl
+    +make-container
+
+.container-md
     +md-up
-        max-width: 720px
+        max-width: map.get($container-max-widths, md)
 
-.container, .container-sm, .container-md, .container-lg
+.container-md, .container-lg
     +lg-up
-        max-width: 960px
+        max-width: map.get($container-max-widths, lg)
 
-.container, .container-sm, .container-md, .container-lg, .container-xl
+.container-md, .container-lg, .container-xl
     +xl-up
-        max-width: 1140px
+        max-width: map.get($container-max-widths, xl)
+
+.container-xxl
+    +xxl-up
+        max-width: map.get($container-max-widths, xxl)
 
 .row
     +make-row

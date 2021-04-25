@@ -1,8 +1,9 @@
 @use '2-mixins/tools' as *
+@use '1-variables/variables' as *
 
 @mixin make-container
     +w(100%)
-    +px(15px)
+    +px($grid-gutter-width / 2)
     +mx(auto)
 
 @mixin make-row
@@ -10,10 +11,10 @@
     display: flex
     -ms-flex-wrap: wrap
     flex-wrap: wrap
-    margin-right: -15px
-    margin-left: -15px
+    margin-right: -($grid-gutter-width / 2)
+    margin-left: -($grid-gutter-width / 2)
 
 %grid-column
     position: relative
     width: 100%
-    +px(15px)
+    +px($grid-gutter-width / 2)
