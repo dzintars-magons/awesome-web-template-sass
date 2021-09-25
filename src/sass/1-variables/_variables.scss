@@ -25,60 +25,19 @@ $p: rem(18);
 $font-family: 'Roboto', sans-serif;
 
 //font weight variables
+$thin: 300;
 $regular:   400;
 $medium:    500;
 $semi-bold: 600;
 $bold:      700;
 
 $primary-line-height: 1.5;
+$small-line-height: 1;
 
 //font colors
 $primary-font-color: #010100;
 $secondary-font-color: #fff;
 
-//FONT-PROPERTIES MAP
-
-// large-heading and paragraph are examples here
-//you can add and change the naming yourself and you will have classes of the same name with font-sizes starting from these correspdonding breakpoints
-//you can also delete a breakpoint if you don't need a change in font-size starting from that specific breakpoint
-//breakpoints to use : xs, sm, md, lg, xl, xxl ; Will work only breakpoints that are also specified in $grid-breakpoints-start sass map
-
-$font-properties:
-    (
-        "large-heading" : 
-        (
-            "font-family" : $font-family,
-            "font-weight" : $regular,
-            "line-height" : $primary-line-height,
-            "color" : $primary-font-color,
-            "margin-bottom" : 22px,
-            "font-size-breakpoints" : (
-                "xs" : 45px,
-                "sm" : 45px,
-                "md" : 45px,
-                "lg" : 75px,
-                "xl" : 75px,
-                "xxl" : 75px
-            )
-        ),
-        "paragraph" : 
-        (   
-            "font-family" : $font-family,
-            "font-weight" : $regular,
-            "line-height" : $primary-line-height,
-            "color" : $primary-font-color,
-            "margin-bottom" : 18px,
-            "font-size-breakpoints" : (
-                "xs" : 20px,
-                "sm" : 22px,
-                "md" : 22px,
-                "lg" : 30px,
-                "xl" : 44px,
-                "xxl" : 44px
-            )
-        )
-    );
-    
 /*
     =========
     Responsive
