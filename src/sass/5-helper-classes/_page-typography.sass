@@ -2,40 +2,75 @@
 @use '2-mixins/px-to-rem-convert' as *
 @use '2-mixins/mediaqueries' as *
 
+// using css variables with fallbacks 
+// use like this : 
+// +var(font-size, fs-large)
+// this will give your css class both the value of the property , for example - font-size: 15px and its variable font-size: var(--fs-large)
+//It creates media queries for you
+
+@mixin var($property, $variable)
+    @if (type-of(map-get($vars, $variable)) != 'map')
+        #{$property}: map-get($vars, $variable)
+        #{$property}: var(--#{$variable})
+    @else
+        @if (map-has-key($vars, $variable, "xs"))
+            #{$property}: map-get($vars, $variable, "xs")
+            #{$property}: var(--#{$variable})
+        @if (map-has-key($vars, $variable, "sm"))
+            @include sm-up
+                #{$property}: map-get($vars, $variable, "sm")
+                #{$property}: var(--#{$variable})
+        @if (map-has-key($vars, $variable, "md"))
+            @include md-up
+                #{$property}: map-get($vars, $variable, "md")
+                #{$property}: var(--#{$variable})
+        @if (map-has-key($vars, $variable, "xl"))
+            @include xl-up
+                #{$property}: map-get($vars, $variable, "xl")
+                #{$property}: var(--#{$variable})
+        @if (map-has-key($vars, $variable, "xxl"))
+            @include xxl-up
+                #{$property}: map-get($vars, $variable, "xxl")
+                #{$property}: var(--#{$variable})
+
+
+@mixin background-image-linear-gradient($from, $to) 
+    background-image: linear-gradient(180deg, map-get($vars, $from) 100%, map-get($vars, $to) 100%)
+    background-image: linear-gradient(180deg, var(--#{$from}) 100%, var(--#{$to}) 100%)
+
+
 .large-font-size
-    font-family: $font-family
-    font-weight: $bold
-    font-size: rem(33px)
-    +sm-up
-        font-size: rem(47px)
+    font-family: var(--font-family)
+    font-weight: var(--fw-bold)
+    // font-size: var(--fs-large)
+    +var(font-size, fs-large)
 .average-font-size
-    font-family: $font-family
-    font-weight: $thin
-    line-height: $small-line-height
+    font-family: var(--font-family)
+    font-weight: var(--fw-thin)
+    line-height: var(--small-line-height)
     margin-bottom: 0
-    font-size: rem(19px)
+    +var(font-size, fs-average)
 .medium-font-size
-    font-family: $font-family
-    font-weight: $bold
-    line-height: $small-line-height
-    color: $secondary-font-color
-    font-size: 25px
+    font-family: var(--font-family)
+    font-weight: var(--fw-bold)
+    line-height: var(--small-line-height)
+    color: var(--secondary-font-color)
+    +var(font-size, fs-medium)
 .small-font-size
     font-family: 'Roboto', sans-serif
-    font-size: rem(15px)
-    
+    +var(font-size, fs-small)
 .small-line-height
     line-height: 1
 .semi-bold
     font-weight: 700
 .white-text
-    color: $primary-bg
+    +var(color, primary-bg)
 .font-weight-300
     font-weight: 300 !important
 .font-weight-400
     font-weight: 300 !important
 .highlight-text
-    font-size: 1.3rem
+    +var(font-size, highlight-text)
 
         
         

@@ -156,7 +156,7 @@
     height: 0
     overflow: hidden
     padding-top: $aspect-ratio-box-height / $aspect-ratio-box-width * 100%
-    background: $primary-bg
+    +var(background, primary-bg)
     position: relative
 
 @mixin aspect-ratio-box-container-inner

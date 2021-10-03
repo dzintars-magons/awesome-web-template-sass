@@ -3,43 +3,6 @@
 
 /*
     =========
-    Typography
-    =========
-*/
-
-
-//background colors
-$primary-bg: #fff; 
-$secondary-bg: #66B933;
-$tertiary-bg: #000;
-
-//headings in pixels, but will be converted to rems
-$h1: rem(64);
-$h2: rem(30);
-$h3: rem(20);
-$h4: rem(18);
-$h5: rem(16);
-$h6: rem(16);
-$p: rem(18);
-
-$font-family: 'Roboto', sans-serif;
-
-//font weight variables
-$thin: 300;
-$regular:   400;
-$medium:    500;
-$semi-bold: 600;
-$bold:      700;
-
-$primary-line-height: 1.5;
-$small-line-height: 1;
-
-//font colors
-$primary-font-color: #010100;
-$secondary-font-color: #fff;
-
-/*
-    =========
     Responsive
     =========
 */
@@ -47,7 +10,7 @@ $secondary-font-color: #fff;
 //GRID Breakpoints INFO
 
 $grid-columns: 12;
-$grid-gutter-width: rem(30px);
+$grid-gutter-width: rem(24px);
 
 //grid-breakpoints start value
 $grid-breakpoints-start: (
@@ -92,19 +55,73 @@ $xxl-start: map.get($grid-breakpoints-start, xxl);
 
 /*
     =========
-    Other
+    Typography
     =========
 */
 
-$bg-gradient-from: #222228;
-$bg-gradient-to: #33333C;
+$vars: (
+    primary-bg: #fff,
+    secondary-bg: #66B933,
+    tertiary-bg: #000,
+    font-family: 'Roboto',
+    fw-thin: 300,
+    fw-regular: 400,
+    fw-medium: 500,
+    fw-semi-bold: 600,
+    fw-bold: 700,
+    fs-small: rem(15px),
+    fs-average: rem(19px),
+    fs-medium: rem(25px),
+    fs-large: (
+        xs: 33px,
+        sm: 47px,
+        md: 48px,
+        xl: 49px,
+        xxl: 50px
+    ),
+    fs-highlight: 1.3rem,
+    primary-line-height: 1.5,
+    small-line-height: 1,
+    primary-font-color: #010100,
+    secondary-font-color: #fff,
+    bg-gradient-from: #222228,
+    bg-gradient-to: #33333C,
+    margin-bottom-primary: 1.6rem,
+    button-color: #66B933,
+    button-font-size: (
+        xs: 1.6rem,
+        sm: 1.5rem
+    ),
+    button-padding: 0.5em 1.5em,
+    button-margin: (
+        xs: 0,
+        sm: 15px
+    ),
+);
 
-//Buttons
+:root {
+    @each $property, $value in $vars {
+        @if type-of($value) != 'map' {
+            --#{$property}: #{$value};
+        } @else {
+            @each $map-breakpoint, $map-breakpoint-value in $value {
+                @if ($map-breakpoint == 'xs') {
+                    --#{$property}: #{$map-breakpoint-value};
+                } @else {
+                    @media (min-width: map-get($grid-breakpoints-start, #{$map-breakpoint} )) {
+                        --#{$property}: #{$map-breakpoint-value};
+                    }
+                }
+            }
+        }
+    }
+}
 
-$button-color: #66B933;
-$button-font-size: 1.6rem;
-$button-padding: 0.5em 1.5em;
-$button-margin: 0;
+/*
+    =========
+    Other
+    =========
+*/
 
 //Spacing 
 

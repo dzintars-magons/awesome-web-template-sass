@@ -1,9 +1,11 @@
 @use '1-variables/variables' as *
+@use '2-mixins/tools' as *
+@use '5-helper-classes/page-typography' as *
 
 html
   box-sizing: border-box
   -ms-overflow-style: scrollbar
-  font-family: $font-family
+  font-family: var(--font-family)
   min-height: 100%
   width: 100%
   -webkit-text-size-adjust: 100%
@@ -16,39 +18,17 @@ html
 
 body
   overflow-x: hidden
-  background-color: $primary-bg
-  color: $primary-font-color
-  font-family: $font-family
-  font-weight: $regular
-  line-height: $primary-line-height
+  +var(background-color, primary-bg)
+  color: var(--primary-font-color)
+  font-family: var(--font-family)
+  font-weight: var(--fw-regular)
+  line-height: var(--primary-line-height)
 
 p, h1, h2, h3, h4, h5, h6
   margin-top: 0
-  margin-bottom: $margin-bottom-primary
+  +var(margin-bottom, margin-bottom-primary)
 
-h1, h2, h3, h4, h5, h6
-  text-align: center
-
-h1
-  font-size: $h1
-h2
-  font-size: $h2
-h3
-  font-size: $h3
-h4
-  font-size: $h4
-h5
-  font-size: $h5
-h6
-  font-size: $h6
-p
-  font-size: $p
-  
-// p:first-child, h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child
-//   padding-top: $padding-top-primary
-
-p
-  font-size: $p
+p, h1, h2, h3, h4, h5, h6
   text-align: center
 
 button:not(:disabled),
@@ -60,11 +40,11 @@ button:not(:disabled),
 button, [type="button"], .btn
   display: inline-block
   color: inherit
-  background-color: $button-color
-  line-height: $primary-line-height
-  font-size: $button-font-size
-  padding: $button-padding
-  margin: $button-margin
+  +var(background-color, button-color)
+  line-height: var(--primary-line-height)
+  +var(font-size, button-font-size)
+  +var(padding, button-padding)
+  +var(margin, button-margin)
   text-decoration: none
   text-align: center
   border: 1px solid transparent
