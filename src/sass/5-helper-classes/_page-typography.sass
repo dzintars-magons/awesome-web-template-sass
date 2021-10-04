@@ -9,6 +9,8 @@
 //It creates media queries for you
 
 @mixin var($property, $variable)
+    @if (not map-get($vars, $variable))
+        @error 'There is no such variable: #{$variable}. Please check your list of variables!'
     @if (type-of(map-get($vars, $variable)) != 'map')
         #{$property}: map-get($vars, $variable)
         #{$property}: var(--#{$variable})
@@ -38,29 +40,29 @@
     background-image: linear-gradient(180deg, map-get($vars, $from) 100%, map-get($vars, $to) 100%)
     background-image: linear-gradient(180deg, var(--#{$from}) 100%, var(--#{$to}) 100%)
 
+%roboto-bold
+    +var(font-family, font-family)
+    +var(font-weight, fw-bold)
 
 .large-font-size
-    font-family: var(--font-family)
-    font-weight: var(--fw-bold)
-    // font-size: var(--fs-large)
+    @extend %roboto-bold
     +var(font-size, fs-large)
 .average-font-size
-    font-family: var(--font-family)
-    font-weight: var(--fw-thin)
-    line-height: var(--small-line-height)
-    margin-bottom: 0
+    +var(font-family, font-family)
+    +var(font-weight, fw-thin)
     +var(font-size, fs-average)
+    +var(line-height, small-line-height)
+    margin-bottom: 0
 .medium-font-size
-    font-family: var(--font-family)
-    font-weight: var(--fw-bold)
-    line-height: var(--small-line-height)
-    color: var(--secondary-font-color)
+    @extend %roboto-bold
     +var(font-size, fs-medium)
+    +var(line-height, small-line-height)
+    +var(color, secondary-font-color)
 .small-font-size
-    font-family: 'Roboto', sans-serif
+    +var(font-family, font-family)
     +var(font-size, fs-small)
 .small-line-height
-    line-height: 1
+    +var(line-height, small-line-height)
 .semi-bold
     font-weight: 700
 .white-text
@@ -70,7 +72,7 @@
 .font-weight-400
     font-weight: 300 !important
 .highlight-text
-    +var(font-size, highlight-text)
+    +var(font-size, fs-highlight)
 
         
         
